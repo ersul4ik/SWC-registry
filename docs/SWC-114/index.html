@@ -47,12 +47,12 @@
  * @title SafeMath
  * @dev Math operations with safety checks that revert on error
  */</span>
-library SafeMath {
+<span class="hljs-class"><span class="hljs-keyword">library</span> <span class="hljs-title">SafeMath</span> </span>{
 
   <span class="hljs-comment">/**
   * @dev Multiplies two numbers, reverts on overflow.
   */</span>
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mul</span>(<span class="hljs-params">uint256 a, uint256 b</span>) <span class="hljs-title">internal</span> <span class="hljs-title">pure</span> <span class="hljs-title">returns</span> (<span class="hljs-params">uint256</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mul</span>(<span class="hljs-params"><span class="hljs-keyword">uint256</span> a, <span class="hljs-keyword">uint256</span> b</span>) <span class="hljs-title">internal</span> <span class="hljs-title">pure</span> <span class="hljs-title">returns</span> (<span class="hljs-params"><span class="hljs-keyword">uint256</span></span>) </span>{
     <span class="hljs-comment">// Gas optimization: this is cheaper than requiring 'a' not being zero, but the</span>
     <span class="hljs-comment">// benefit is lost if 'b' is also tested.</span>
     <span class="hljs-comment">// See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522</span>
@@ -60,8 +60,8 @@ library SafeMath {
       <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     }
 
-    uint256 c = a * b;
-    <span class="hljs-built_in">require</span>(c / a == b);
+    <span class="hljs-keyword">uint256</span> c = a * b;
+    <span class="hljs-keyword">require</span>(c / a == b);
 
     <span class="hljs-keyword">return</span> c;
   }
@@ -69,9 +69,9 @@ library SafeMath {
   <span class="hljs-comment">/**
   * @dev Integer division of two numbers truncating the quotient, reverts on division by zero.
   */</span>
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">div</span>(<span class="hljs-params">uint256 a, uint256 b</span>) <span class="hljs-title">internal</span> <span class="hljs-title">pure</span> <span class="hljs-title">returns</span> (<span class="hljs-params">uint256</span>) </span>{
-    <span class="hljs-built_in">require</span>(b &gt; <span class="hljs-number">0</span>); <span class="hljs-comment">// Solidity only automatically asserts when dividing by 0</span>
-    uint256 c = a / b;
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">div</span>(<span class="hljs-params"><span class="hljs-keyword">uint256</span> a, <span class="hljs-keyword">uint256</span> b</span>) <span class="hljs-title">internal</span> <span class="hljs-title">pure</span> <span class="hljs-title">returns</span> (<span class="hljs-params"><span class="hljs-keyword">uint256</span></span>) </span>{
+    <span class="hljs-keyword">require</span>(b &gt; <span class="hljs-number">0</span>); <span class="hljs-comment">// Solidity only automatically asserts when dividing by 0</span>
+    <span class="hljs-keyword">uint256</span> c = a / b;
     <span class="hljs-comment">// assert(a == b * c + a % b); // There is no case in which this doesn't hold</span>
 
     <span class="hljs-keyword">return</span> c;
@@ -80,9 +80,9 @@ library SafeMath {
   <span class="hljs-comment">/**
   * @dev Subtracts two numbers, reverts on overflow (i.e. if subtrahend is greater than minuend).
   */</span>
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sub</span>(<span class="hljs-params">uint256 a, uint256 b</span>) <span class="hljs-title">internal</span> <span class="hljs-title">pure</span> <span class="hljs-title">returns</span> (<span class="hljs-params">uint256</span>) </span>{
-    <span class="hljs-built_in">require</span>(b &lt;= a);
-    uint256 c = a - b;
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sub</span>(<span class="hljs-params"><span class="hljs-keyword">uint256</span> a, <span class="hljs-keyword">uint256</span> b</span>) <span class="hljs-title">internal</span> <span class="hljs-title">pure</span> <span class="hljs-title">returns</span> (<span class="hljs-params"><span class="hljs-keyword">uint256</span></span>) </span>{
+    <span class="hljs-keyword">require</span>(b &lt;= a);
+    <span class="hljs-keyword">uint256</span> c = a - b;
 
     <span class="hljs-keyword">return</span> c;
   }
@@ -90,9 +90,9 @@ library SafeMath {
   <span class="hljs-comment">/**
   * @dev Adds two numbers, reverts on overflow.
   */</span>
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">uint256 a, uint256 b</span>) <span class="hljs-title">internal</span> <span class="hljs-title">pure</span> <span class="hljs-title">returns</span> (<span class="hljs-params">uint256</span>) </span>{
-    uint256 c = a + b;
-    <span class="hljs-built_in">require</span>(c &gt;= a);
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params"><span class="hljs-keyword">uint256</span> a, <span class="hljs-keyword">uint256</span> b</span>) <span class="hljs-title">internal</span> <span class="hljs-title">pure</span> <span class="hljs-title">returns</span> (<span class="hljs-params"><span class="hljs-keyword">uint256</span></span>) </span>{
+    <span class="hljs-keyword">uint256</span> c = a + b;
+    <span class="hljs-keyword">require</span>(c &gt;= a);
 
     <span class="hljs-keyword">return</span> c;
   }
@@ -101,66 +101,66 @@ library SafeMath {
   * @dev Divides two numbers and returns the remainder (unsigned integer modulo),
   * reverts when dividing by zero.
   */</span>
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mod</span>(<span class="hljs-params">uint256 a, uint256 b</span>) <span class="hljs-title">internal</span> <span class="hljs-title">pure</span> <span class="hljs-title">returns</span> (<span class="hljs-params">uint256</span>) </span>{
-    <span class="hljs-built_in">require</span>(b != <span class="hljs-number">0</span>);
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mod</span>(<span class="hljs-params"><span class="hljs-keyword">uint256</span> a, <span class="hljs-keyword">uint256</span> b</span>) <span class="hljs-title">internal</span> <span class="hljs-title">pure</span> <span class="hljs-title">returns</span> (<span class="hljs-params"><span class="hljs-keyword">uint256</span></span>) </span>{
+    <span class="hljs-keyword">require</span>(b != <span class="hljs-number">0</span>);
     <span class="hljs-keyword">return</span> a % b;
   }
 }
 
 
-contract ERC20 {
+<span class="hljs-class"><span class="hljs-keyword">contract</span> <span class="hljs-title">ERC20</span> </span>{
 
-  event Transfer( address indexed <span class="hljs-keyword">from</span>, address indexed to, uint256 value );
-  event Approval( address indexed owner, address indexed spender, uint256 value);
-  using SafeMath <span class="hljs-keyword">for</span> *;
+  <span class="hljs-function"><span class="hljs-keyword">event</span> <span class="hljs-title">Transfer</span>(<span class="hljs-params"> <span class="hljs-keyword">address</span> <span class="hljs-keyword">indexed</span> from, <span class="hljs-keyword">address</span> <span class="hljs-keyword">indexed</span> to, <span class="hljs-keyword">uint256</span> value </span>)</span>;
+  <span class="hljs-function"><span class="hljs-keyword">event</span> <span class="hljs-title">Approval</span>(<span class="hljs-params"> <span class="hljs-keyword">address</span> <span class="hljs-keyword">indexed</span> owner, <span class="hljs-keyword">address</span> <span class="hljs-keyword">indexed</span> spender, <span class="hljs-keyword">uint256</span> value</span>)</span>;
+  <span class="hljs-keyword">using</span> SafeMath <span class="hljs-keyword">for</span> *;
 
-  mapping (<span class="hljs-function"><span class="hljs-params">address</span> =&gt;</span> uint256) private _balances;
+  <span class="hljs-keyword">mapping</span> (<span class="hljs-keyword">address</span> =&gt; <span class="hljs-keyword">uint256</span>) <span class="hljs-keyword">private</span> _balances;
 
-  mapping (<span class="hljs-function"><span class="hljs-params">address</span> =&gt;</span> mapping (<span class="hljs-function"><span class="hljs-params">address</span> =&gt;</span> uint256)) private _allowed;
+  <span class="hljs-keyword">mapping</span> (<span class="hljs-keyword">address</span> =&gt; <span class="hljs-keyword">mapping</span> (<span class="hljs-keyword">address</span> =&gt; <span class="hljs-keyword">uint256</span>)) <span class="hljs-keyword">private</span> _allowed;
 
-  uint256 private _totalSupply;
+  <span class="hljs-keyword">uint256</span> <span class="hljs-keyword">private</span> _totalSupply;
 
-  <span class="hljs-keyword">constructor</span>(uint totalSupply){
-    _balances[msg.sender] = totalSupply;
+  constructor(<span class="hljs-keyword">uint</span> totalSupply){
+    _balances[<span class="hljs-built_in">msg</span>.<span class="hljs-built_in">sender</span>] = totalSupply;
   }
 
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">balanceOf</span>(<span class="hljs-params">address owner</span>) <span class="hljs-title">public</span> <span class="hljs-title">view</span> <span class="hljs-title">returns</span> (<span class="hljs-params">uint256</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">balanceOf</span>(<span class="hljs-params"><span class="hljs-keyword">address</span> owner</span>) <span class="hljs-title">public</span> <span class="hljs-title">view</span> <span class="hljs-title">returns</span> (<span class="hljs-params"><span class="hljs-keyword">uint256</span></span>) </span>{
     <span class="hljs-keyword">return</span> _balances[owner];
   }
 
 
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">allowance</span>(<span class="hljs-params">address owner, address spender</span>) <span class="hljs-title">public</span> <span class="hljs-title">view</span> <span class="hljs-title">returns</span> (<span class="hljs-params">uint256</span>)
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">allowance</span>(<span class="hljs-params"><span class="hljs-keyword">address</span> owner, <span class="hljs-keyword">address</span> spender</span>) <span class="hljs-title">public</span> <span class="hljs-title">view</span> <span class="hljs-title">returns</span> (<span class="hljs-params"><span class="hljs-keyword">uint256</span></span>)
   </span>{
     <span class="hljs-keyword">return</span> _allowed[owner][spender];
   }
 
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">transfer</span>(<span class="hljs-params">address to, uint256 value</span>) <span class="hljs-title">public</span> <span class="hljs-title">returns</span> (<span class="hljs-params">bool</span>) </span>{
-    <span class="hljs-built_in">require</span>(value &lt;= _balances[msg.sender]);
-    <span class="hljs-built_in">require</span>(to != address(<span class="hljs-number">0</span>));
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">transfer</span>(<span class="hljs-params"><span class="hljs-keyword">address</span> to, <span class="hljs-keyword">uint256</span> value</span>) <span class="hljs-title">public</span> <span class="hljs-title">returns</span> (<span class="hljs-params"><span class="hljs-keyword">bool</span></span>) </span>{
+    <span class="hljs-keyword">require</span>(value &lt;= _balances[<span class="hljs-built_in">msg</span>.<span class="hljs-built_in">sender</span>]);
+    <span class="hljs-keyword">require</span>(to != <span class="hljs-keyword">address</span>(<span class="hljs-number">0</span>));
 
-    _balances[msg.sender] = _balances[msg.sender].sub(value);
+    _balances[<span class="hljs-built_in">msg</span>.<span class="hljs-built_in">sender</span>] = _balances[<span class="hljs-built_in">msg</span>.<span class="hljs-built_in">sender</span>].sub(value);
     _balances[to] = _balances[to].add(value);
-    emit Transfer(msg.sender, to, value);
+    emit Transfer(<span class="hljs-built_in">msg</span>.<span class="hljs-built_in">sender</span>, to, value);
     <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
   }
 
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">approve</span>(<span class="hljs-params">address spender, uint256 value</span>) <span class="hljs-title">public</span> <span class="hljs-title">returns</span> (<span class="hljs-params">bool</span>) </span>{
-    <span class="hljs-built_in">require</span>(spender != address(<span class="hljs-number">0</span>));
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">approve</span>(<span class="hljs-params"><span class="hljs-keyword">address</span> spender, <span class="hljs-keyword">uint256</span> value</span>) <span class="hljs-title">public</span> <span class="hljs-title">returns</span> (<span class="hljs-params"><span class="hljs-keyword">bool</span></span>) </span>{
+    <span class="hljs-keyword">require</span>(spender != <span class="hljs-keyword">address</span>(<span class="hljs-number">0</span>));
 
-    _allowed[msg.sender][spender] = value;
-    emit Approval(msg.sender, spender, value);
+    _allowed[<span class="hljs-built_in">msg</span>.<span class="hljs-built_in">sender</span>][spender] = value;
+    emit Approval(<span class="hljs-built_in">msg</span>.<span class="hljs-built_in">sender</span>, spender, value);
     <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
   }
 
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">transferFrom</span>(<span class="hljs-params">address from, address to, uint256 value</span>) <span class="hljs-title">public</span> <span class="hljs-title">returns</span> (<span class="hljs-params">bool</span>) </span>{
-    <span class="hljs-built_in">require</span>(value &lt;= _balances[<span class="hljs-keyword">from</span>]);
-    <span class="hljs-built_in">require</span>(value &lt;= _allowed[<span class="hljs-keyword">from</span>][msg.sender]);
-    <span class="hljs-built_in">require</span>(to != address(<span class="hljs-number">0</span>));
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">transferFrom</span>(<span class="hljs-params"><span class="hljs-keyword">address</span> from, <span class="hljs-keyword">address</span> to, <span class="hljs-keyword">uint256</span> value</span>) <span class="hljs-title">public</span> <span class="hljs-title">returns</span> (<span class="hljs-params"><span class="hljs-keyword">bool</span></span>) </span>{
+    <span class="hljs-keyword">require</span>(value &lt;= _balances[from]);
+    <span class="hljs-keyword">require</span>(value &lt;= _allowed[from][<span class="hljs-built_in">msg</span>.<span class="hljs-built_in">sender</span>]);
+    <span class="hljs-keyword">require</span>(to != <span class="hljs-keyword">address</span>(<span class="hljs-number">0</span>));
 
-    _balances[<span class="hljs-keyword">from</span>] = _balances[<span class="hljs-keyword">from</span>].sub(value);
+    _balances[from] = _balances[from].sub(value);
     _balances[to] = _balances[to].add(value);
-    _allowed[<span class="hljs-keyword">from</span>][msg.sender] = _allowed[<span class="hljs-keyword">from</span>][msg.sender].sub(value);
-    emit Transfer(<span class="hljs-keyword">from</span>, to, value);
+    _allowed[from][<span class="hljs-built_in">msg</span>.<span class="hljs-built_in">sender</span>] = _allowed[from][<span class="hljs-built_in">msg</span>.<span class="hljs-built_in">sender</span>].sub(value);
+    emit Transfer(from, to, value);
     <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
   }
 }
