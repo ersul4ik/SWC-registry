@@ -17,10 +17,10 @@ const siteConfig = {
   url: 'https://SmartContractSecurity.github.io',
   baseUrl: '/SWC-registry/',
   projectName: 'SWC-registry',
-  organizationName: 'ersul4ik',
+  organizationName: 'SmartContractSecurity',
   customDocsPath: 'website/docs',
   headerLinks: [
-    { doc: 'SWC-100', label: 'Registry' },
+    {doc: 'SWC-100', label: 'Registry'},
   ],
   headerIcon: 'img/docusaurus.svg',
   footerIcon: 'img/docusaurus.svg',
