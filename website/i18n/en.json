@@ -76,7 +76,8 @@
       }
     },
     "links": {
-      "Registry": "Registry"
+      "Registry": "Registry",
+      "Github": "Github"
     },
     "categories": {
       "SWC ID": "SWC ID"
