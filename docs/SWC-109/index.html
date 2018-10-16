@@ -40,7 +40,7 @@
 <h2><a class="anchor" aria-hidden="true" id="contract-samples"></a><a href="#contract-samples" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Contract Samples</h2>
 <h3><a class="anchor" aria-hidden="true" id="crypto-roulettesol"></a><a href="#crypto-roulettesol" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>crypto_roulette.sol</h3>
 <pre><code class="hljs css language-Solity"><span class="hljs-comment">/*
- * <span class="hljs-doctag">@source</span>: https://github.com/thec00n/smart-contract-honeypots/blob/master/CryptoRoulette.sol
+ * @source: https://github.com/thec00n/smart-contract-honeypots/blob/master/CryptoRoulette.sol
  */</span>
 pragma solidity ^<span class="hljs-number">0.4</span><span class="hljs-number">.19</span>;
 
@@ -51,53 +51,53 @@ pragma solidity ^<span class="hljs-number">0.4</span><span class="hljs-number">.
 <span class="hljs-comment">//</span>
 <span class="hljs-comment">// To play, call the play() method with the guessed number (1-20).  Bet price: 0.1 ether</span>
 
-contract CryptoRoulette {
+<span class="hljs-class"><span class="hljs-keyword">contract</span> <span class="hljs-title">CryptoRoulette</span> </span>{
 
-    uint256 <span class="hljs-keyword">private</span> secretNumber;
-    uint256 <span class="hljs-keyword">public</span> lastPlayed;
-    uint256 <span class="hljs-keyword">public</span> betPrice = <span class="hljs-number">0.1</span> ether;
-    address <span class="hljs-keyword">public</span> ownerAddr;
+    <span class="hljs-keyword">uint256</span> <span class="hljs-keyword">private</span> secretNumber;
+    <span class="hljs-keyword">uint256</span> <span class="hljs-keyword">public</span> lastPlayed;
+    <span class="hljs-keyword">uint256</span> <span class="hljs-keyword">public</span> betPrice = <span class="hljs-number">0.1</span> <span class="hljs-literal">ether</span>;
+    <span class="hljs-keyword">address</span> <span class="hljs-keyword">public</span> ownerAddr;
 
-    struct Game {
-        address player;
-        uint256 number;
+    <span class="hljs-keyword">struct</span> Game {
+        <span class="hljs-keyword">address</span> player;
+        <span class="hljs-keyword">uint256</span> number;
     }
     Game[] <span class="hljs-keyword">public</span> gamesPlayed;
 
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">CryptoRoulette</span><span class="hljs-params">()</span> <span class="hljs-title">public</span> </span>{
-        ownerAddr = msg.sender;
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">CryptoRoulette</span>(<span class="hljs-params"></span>) <span class="hljs-title">public</span> </span>{
+        ownerAddr = <span class="hljs-built_in">msg</span>.<span class="hljs-built_in">sender</span>;
         shuffle();
     }
 
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">shuffle</span><span class="hljs-params">()</span> <span class="hljs-title">internal</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">shuffle</span>(<span class="hljs-params"></span>) <span class="hljs-title">internal</span> </span>{
         <span class="hljs-comment">// randomly set secretNumber with a value between 1 and 20</span>
-        secretNumber = uint8(sha3(now, block.blockhash(block.number<span class="hljs-number">-1</span>))) % <span class="hljs-number">20</span> + <span class="hljs-number">1</span>;
+        secretNumber = <span class="hljs-keyword">uint8</span>(<span class="hljs-built_in">sha3</span>(<span class="hljs-built_in">now</span>, <span class="hljs-built_in">block</span>.<span class="hljs-built_in">blockhash</span>(<span class="hljs-built_in">block</span>.<span class="hljs-built_in">number</span>-<span class="hljs-number">1</span>))) % <span class="hljs-number">20</span> + <span class="hljs-number">1</span>;
     }
 
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">play</span><span class="hljs-params">(uint256 number)</span> <span class="hljs-title">payable</span> <span class="hljs-title">public</span> </span>{
-        <span class="hljs-keyword">require</span>(msg.value &gt;= betPrice &amp;&amp; number &lt;= <span class="hljs-number">10</span>);
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">play</span>(<span class="hljs-params"><span class="hljs-keyword">uint256</span> number</span>) <span class="hljs-title">payable</span> <span class="hljs-title">public</span> </span>{
+        <span class="hljs-keyword">require</span>(<span class="hljs-built_in">msg</span>.value &gt;= betPrice &amp;&amp; number &lt;= <span class="hljs-number">10</span>);
 
         Game game;
-        game.player = msg.sender;
+        game.player = <span class="hljs-built_in">msg</span>.<span class="hljs-built_in">sender</span>;
         game.number = number;
-        gamesPlayed.push(game);
+        gamesPlayed.<span class="hljs-built_in">push</span>(game);
 
         <span class="hljs-keyword">if</span> (number == secretNumber) {
             <span class="hljs-comment">// win!</span>
-            msg.sender.transfer(this.balance);
+            <span class="hljs-built_in">msg</span>.<span class="hljs-built_in">sender</span>.transfer(this.<span class="hljs-built_in">balance</span>);
         }
 
         shuffle();
-        lastPlayed = now;
+        lastPlayed = <span class="hljs-built_in">now</span>;
     }
 
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">kill</span><span class="hljs-params">()</span> <span class="hljs-title">public</span> </span>{
-        <span class="hljs-keyword">if</span> (msg.sender == ownerAddr &amp;&amp; now &gt; lastPlayed + <span class="hljs-number">1</span> days) {
-            suicide(msg.sender);
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">kill</span>(<span class="hljs-params"></span>) <span class="hljs-title">public</span> </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">msg</span>.<span class="hljs-built_in">sender</span> == ownerAddr &amp;&amp; <span class="hljs-built_in">now</span> &gt; lastPlayed + <span class="hljs-number">1</span> <span class="hljs-literal">days</span>) {
+            suicide(<span class="hljs-built_in">msg</span>.<span class="hljs-built_in">sender</span>);
         }
     }
 
-    <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> <span class="hljs-title">public</span> <span class="hljs-title">payable</span> </span>{ }
+    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) <span class="hljs-title">public</span> <span class="hljs-title">payable</span> </span>{ }
 }
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="config"></a><a href="#config" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Config</h4>
